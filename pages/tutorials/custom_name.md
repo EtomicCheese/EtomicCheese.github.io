@@ -58,11 +58,11 @@ Now that we have the component set up, we can now add some text.
 give @p minecraft:sponge[custom_name='{text: "Cheese"}']
 ```
 
+First we specify `text`, then we make `text` contain the word `"Cheese"` but putting the word inside quotations `""`.
+
 ---
 
 ### Italic
-
-First we specify `text`, then we make `text` contain the word `"Cheese"` but putting the word inside quotations `""`.
 
 Of course we can create additional information to the text. Currently the text is slanted, meaning that by default without any additional information, Minecraft is making the text slanted. This is the default because it inherits the same concept from naming items with the nametag in an anvil. But unlike an anvil, we have a command block, so we are going to change things up a bit.
 

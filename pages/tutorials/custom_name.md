@@ -13,12 +13,17 @@
     - [Styles](#styles)
     - [Multiple Texts](#multiple-texts)
     - [Extra](#extra)
+    - [Conclusion](#conclusion)
 
 ### Introduction
+
+---
 
 As of Minecraft 1.20.5, the `custom_name` component is to replace the old `display` tag used to change the visual name and lore of the item or block. The following commands will not work in versions of Minecraft older than 1.20.5 on the Java Edition of the game.
 
 ### Basics
+
+---
 
 First you must give yourself an item or block to store into your inventory.
 
@@ -45,6 +50,8 @@ Just for some additional information regarding the curly brackets `{}`, we call 
 
 ### Text
 
+---
+
 Now that we have the component set up, we can now add some text.
 
 ```json
@@ -52,6 +59,8 @@ give @p minecraft:sponge[custom_name='{text: "Cheese"}']
 ```
 
 ### Italic
+
+---
 
 First we specify `text`, then we make `text` contain the word `"Cheese"` but putting the word inside quotations `""`.
 
@@ -66,6 +75,8 @@ give @p minecraft:sponge[custom_name='{text: "Cheese",italic: false}']
 You can see that we added a comma `,` after `"Cheese"`. Usually you have a component, then you have the component's value. In this case, the `text` component contains `"Cheese"`. Since we can add a second component, we add a comma `,` and write down `italic`. Unlike `text`, `italic` doesn't contain text, rather it contains the words `true` or `false`. In this case, `italic` is set to `false` so that the text isn't slanted.
 
 ### Colors
+
+---
 
 Since italic is a style, there are many styles like `bold`, `underlined`, `strikethrough` etc. We will do those later but first, let's change the color of the text.
 
@@ -108,6 +119,8 @@ You can simply generate these custom hex codes by simply going to google and sea
 
 ### Format
 
+---
+
 From this point onwards, the Minecraft commands we are making are all on a single line, and as the command increases in complexity, we won't be able to properly read the code. To increase readability for this documentation, I will instead be using multiple lines to explain the code.
 
 So instead of this:
@@ -135,6 +148,8 @@ This doesn't break the code, it simply displays it in a better way.
 This will still work inside minecraft's single line of code but there will be many spaces in the lines. So after every example block of code, I'll provide the single line version.
 
 ### Styles
+
+---
 
 There are a few styles in Minecraft that can add some variation to the text being displayed.
 
@@ -194,6 +209,8 @@ give @p minecraft:sponge[custom_name='{text: "Cheese", italic: true, color: "#8c
 ```
 
 ### Multiple Texts
+
+---
 
 As mentioned before, when you add square brackets `[]`, it's telling the game that you can have multiple components and objects `{}`. This means that the object `{}` that contains our text, colors, and styles, can have a neighbor! We can add a second text object `{}` after the first one as long as both objects are surrounded by the square brackets `[]`. Here is an example.
 
@@ -284,5 +301,126 @@ You can see that the underlines are still there because we didn't specify them t
 
 ### Extra
 
+---
+
 As it is true that you can add as many text objects as you want, you can also have a text object inside another text object instead of having square brackets containing both text objects.
 
+Let's create an entirely new block of code to work with since the last one is getting a little large.
+
+```json
+give @p minecraft:paper[
+    custom_name='{
+        text: "Hello, World!"
+    }'
+]
+```
+
+```json
+give @p minecraft:paper[custom_name='{text: "Hello, World!"}']
+```
+
+This will simply give you a piece of paper saying `Hello, World!`. Now just like `color` and `bold`, `italic`, `obfuscated` etc. We can add in a new thing called `extra`. This is just like having a second text object, except it's inside another text object. `extra` requires square brackets to work.
+
+```json
+give @p minecraft:paper[
+    custom_name='{
+        text: "Hello, World!",
+        extra: [
+            {
+                text: " Extra Extra!"
+            }
+        ]
+    }'
+]
+```
+
+```json
+give @p minecraft:paper[custom_name='{text: "Hello, World!",extra:[{text: " Extra Extra!"}]}']
+```
+
+As you know, there are square brackets, so you are quite able to create another text object inside the initial `extra` piece.
+
+```json
+give @p minecraft:paper[
+    custom_name='{
+        text: "Hello, World!",
+        extra: [
+            {
+                text: " Extra Extra!"
+            },
+            {
+                text: " Even More Extra!"
+            }
+        ]
+    }'
+]
+```
+
+```json
+give @p minecraft:paper[custom_name='{text: "Hello, World!",extra:[{text: " Extra Extra!"},{text: " Even More Extra!"}]}']
+```
+
+And since `extra` can contain multiple string objects, and since you have to put `extra` in a string object in order to use it, you can have an extra inside another extra.
+
+```json
+give @p minecraft:paper[
+    custom_name='{
+        text: "Hello, World!",
+        extra: [
+            {
+                text: " Extra Extra!"
+            },
+            {
+                text: " Even More Extra!",
+                extra: [
+                    {
+                        text: " Ok this is getting a little long now"
+                    }
+                ]
+            }
+        ]
+    }'
+]
+```
+
+```json
+give @p minecraft:paper[custom_name='{text: "Hello, World!",extra:[{text: " Extra Extra!"},{text: " Even More Extra!",extra:[{text: " Ok this is getting a little long now"}]}]}']
+```
+
+And just like text objects inheriting the styles from the previous text object, you can define a color at the very top and the rest of the text objects below that will inherit the color.
+
+```json
+give @p minecraft:paper[
+    custom_name='{
+        text: "Hello, World!",
+        color: gold,
+        extra: [
+            {
+                text: " Extra Extra!"
+            },
+            {
+                text: " Even More Extra!",
+                extra: [
+                    {
+                        text: " Ok this is getting a little long now"
+                    }
+                ]
+            }
+        ]
+    }'
+]
+```
+
+```json
+give @p minecraft:paper[custom_name='{text: "Hello, World!",color:gold,extra:[{text: " Extra Extra!"},{text: " Even More Extra!",extra:[{text: " Ok this is getting a little long now"}]}]}']
+```
+
+### Conclusion
+
+---
+
+And that is everything you need to know, or rather everything you can possibly know about the `custom_name` component! At the time of writing this, no video has been published yet, but one will come soon.
+
+---
+
+*This document was written by [Etomic](https://www.youtube.com/EtomicStudios)*

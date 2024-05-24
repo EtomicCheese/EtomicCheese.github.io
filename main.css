@@ -1,0 +1,171 @@
+:root {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 20px;
+}
+
+body{
+    background-color: rgb(40, 40, 40);
+    color: rgb(220, 220, 220);
+    background-image: url('content/misc/black_wool.png');
+    background-size: 100px;
+    image-rendering: pixelated;
+    scrollbar-color: rgba(50 ,50 ,50 , 1) transparent;
+}
+
+.markdown-body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.markdown-body, .markdown-body table {
+    box-shadow: 0px 0px 10px #0000007a;
+    border-radius: 10px;
+    backdrop-filter: blur(4px) brightness(.7);
+    border: 1px solid rgba(255 255 255 / 20%);
+}
+
+.markdown-body table{
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: rgba(0 ,0 ,0 , 0);
+    box-shadow: 0px 0px 0px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform .05s;
+    display: table;
+    margin: 10px auto;
+}
+
+td, th, tr, tbody {
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: rgba(0 ,0 ,0 , 0);
+}
+
+td, th, tr{
+    transition: all .05s;
+}
+
+tr:hover {
+    filter: brightness(1.5);
+}
+
+.markdown-body table td {
+    background-color: transparent;
+    color: rgb(220 220 220);
+    border: 1px solid rgb(255 255 255 / 30%);
+}
+
+.markdown-body table td:hover, th:hover{
+    transform: scale(1.03);
+    /*filter: brightness(1.5);*/
+    background-color: rgb(50, 50, 50);
+}
+
+.markdown-body table tr {
+    background-color: rgb(20 20 20);
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: rgb(40 40 40);
+}
+
+.markdown-body table th {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(150, 150, 150);
+}
+
+table {
+    border-spacing: 5px;
+    border-collapse:unset;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    border-bottom: 0px solid #000;
+    /*border-bottom: 1px solid rgba(220, 220, 220, .5);*/
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    padding-bottom: 5px;
+}
+
+a {
+    color: #6098ff
+}
+
+.markdown-body p strong {
+    color: rgb(255, 255, 255);
+}
+
+.markdown-body code, .markdown-body .highlight, .markdown-body pre, .markdown-body .highlight pre {
+    background-color: rgb(30, 30, 30);
+    border-radius: 10px;
+}
+
+.markdown-body code{
+    border-radius: 4px;
+    background: rgba(30 30 30 / 100%);
+}
+
+.markdown-body pre {
+    transition: all .5s;
+    box-shadow: 0px 0px 10px #0000007a;
+    border: 1px solid #464646;
+}
+
+.markdown-body pre:hover {
+    transform: scale(1.01);
+}
+
+.highlight .nl {
+    color: rgb(156, 220, 254);
+}
+
+.highlight .s2 {
+    color: rgb(206, 145, 120);
+}
+
+.highlight .mi {
+    color: rgb(181, 206, 168);
+}
+
+.highlight pre code {
+    color: rgb(255, 215, 0);
+}
+
+.highlight .kc {
+    color: rgb(86, 156, 214);
+}
+
+.highlight .se {
+    color: rgb(215, 186, 125);
+}
+
+.markdown-body img {
+    box-shadow: 0px 0px 10px #0000007a;
+    border-radius: 10px;
+    transition: transform .5s;
+    border: 1px solid #494949;
+}
+
+.markdown-body img:hover {
+    transform: scale(1.01);
+}
+
+.markdown-body p {
+    text-shadow:0px 0px 15px black;
+}
+
+.markdown-body blockquote {
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+    border-radius: 4px;
+    border-left: 5px solid rgba(255, 255, 255, .5);
+    padding-top: 3px;
+    padding-bottom: 5px;
+}

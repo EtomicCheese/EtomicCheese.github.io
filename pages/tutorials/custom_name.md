@@ -10,6 +10,9 @@
     - [Italic](#italic)
     - [Colors](#colors)
     - [Format](#format)
+    - [Styles](#styles)
+    - [Multiple Texts](#multiple-texts)
+    - [Extra](#extra)
 
 ### Introduction
 
@@ -130,4 +133,156 @@ give @p minecraft:sponge[
 This doesn't break the code, it simply displays it in a better way.
 
 This will still work inside minecraft's single line of code but there will be many spaces in the lines. So after every example block of code, I'll provide the single line version.
+
+### Styles
+
+There are a few styles in Minecraft that can add some variation to the text being displayed.
+
+Here is a list of all the styles you can use.
+
+- italic
+- bold
+- underlined
+- strikethrough
+- obfuscated
+
+And the nice thing is, all styles can be enabled all at the same time, you just have to list them all.
+
+So let's add these styles together, except for obfuscated because that wouldn't be very readable.
+
+```json
+give @p minecraft:sponge[
+    custom_name='
+        {
+            text: "Cheese",
+            italic: true,
+            color: "#8cffcb",
+            bold: true,
+            underlined: true,
+            strikethrough: true
+        }
+    '
+]
+```
+
+```json
+give @p minecraft:sponge[custom_name='{text: "Cheese", italic: true, color: "#8cffcb", bold: true, underlined: true, strikethrough: true}']
+```
+
+Now the item contains every style besides `obfuscated`. With `obfuscated` set to `true`, this will make the text cycle through every character in Minecraft from the english letters to letters with accents to numbers and everything else in between. Of course that does imply that you cannot read the text anymore.
+
+Here it is with `obfuscated` added in.
+
+```json
+give @p minecraft:sponge[
+    custom_name='
+        {
+            text: "Cheese",
+            italic: true,
+            color: "#8cffcb",
+            bold: true,
+            underlined: true,
+            strikethrough: true,
+            obfuscated: true
+        }
+    '
+]
+```
+
+```json
+give @p minecraft:sponge[custom_name='{text: "Cheese", italic: true, color: "#8cffcb", bold: true, underlined: true, strikethrough: true, obfuscated: true}']
+```
+
+### Multiple Texts
+
+As mentioned before, when you add square brackets `[]`, it's telling the game that you can have multiple components and objects `{}`. This means that the object `{}` that contains our text, colors, and styles, can have a neighbor! We can add a second text object `{}` after the first one as long as both objects are surrounded by the square brackets `[]`. Here is an example.
+
+```json
+give @p minecraft:sponge[
+    custom_name='[
+            {
+                text: "Cheese",
+                italic: true,
+                color: "#8cffcb",
+                bold: true,
+                underlined: true,
+                strikethrough: true,
+                obfuscated: true
+            }
+        ]
+    '
+]
+```
+
+```json
+give @p minecraft:sponge[custom_name='[{text: "Cheese", italic: true, color: "#8cffcb", bold: true, underlined: true, strikethrough: true, obfuscated: true}]']
+```
+
+Just after the component `custom_name`, we can see that within the hyphens `''` that the code starts with a square bracket instead of a curly bracket. With this we can add as many text objects as we want, and so we can add in a second one.
+
+So here is an example with `obfuscated` set to `false` because I would like to read what I write.
+
+```json
+give @p minecraft:sponge[
+    custom_name='
+        [
+            {
+                text: "Cheese, ",
+                italic: true,
+                color: "#8cffcb",
+                bold: true,
+                underlined: true,
+                strikethrough: true,
+                obfuscated: false
+            },
+            {
+                text: "the greatest thing ever"
+            }
+        ]
+    '
+]
+```
+
+```json
+give @p minecraft:sponge[custom_name='[{text: "Cheese, ", italic: true, color: "#8cffcb", bold: true, underlined: true, strikethrough: true, obfuscated: false},{text: "the greatest thing ever"}]']
+```
+
+Here are two text objects. One contains the word `"Cheese, "` with that space and comma to make it look nicer, and the other object contains nothing else but text. This means that since the second text object doesn't specify that it is bold, italic or any other style, it will inherit those values from the first text object. This means that if we want the second text object to have a different color or even a different set of styles, we need to specify them in the second text object.
+
+Let's make the second text object `gold`, and let's set the `strikethrough`, `italic` and `bold` to `false`.
+
+```json
+give @p minecraft:sponge[
+    custom_name='
+        [
+            {
+                text: "Cheese, ",
+                italic: true,
+                color: "#8cffcb",
+                bold: true,
+                underlined: true,
+                strikethrough: true,
+                obfuscated: false
+            },
+            {
+                text: "the greatest thing ever",
+                color: gold,
+                italic: false,
+                bold: false,
+                strikethrough: false
+            }
+        ]
+    '
+]
+```
+
+```json
+give @p minecraft:sponge[custom_name='[{text: "Cheese, ", italic: true, color: "#8cffcb", bold: true, underlined: true, strikethrough: true, obfuscated: false},{text: "the greatest thing ever",color: gold,italic: false,bold: false,strikethrough: false}]']
+```
+
+You can see that the underlines are still there because we didn't specify them to be false in the second text object.
+
+### Extra
+
+As it is true that you can add as many text objects as you want, you can also have a text object inside another text object instead of having square brackets containing both text objects.
 

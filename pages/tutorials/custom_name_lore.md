@@ -21,7 +21,7 @@
 
 ### Introduction
 
-As of Minecraft 1.20.5, the `custom_name` component is to replace the old `display` tag used to change the visual name and lore of the item or block. The following commands will not work in versions of Minecraft older than 1.20.5 on the Java Edition of the game.
+As of Minecraft 1.20.5, the `custom_name` component is to replace the old `display` tag used to change the visual name and lore of the item or block. The following commands will not work in versions of Minecraft older than 1.20.5 on the Java Edition of the game. The same goes with the `lore` component.
 
 ---
 
@@ -491,7 +491,7 @@ And that is all there is to it. You can apply all that you have learned in the `
 
 ### Conclusion
 
-And that is everything you need to know, or rather everything you can possibly know about the `custom_name` component! At the time of writing this, no video has been published yet, but one will come soon.
+And that is everything you need to know, or rather everything you can possibly know about the `custom_name` component! *(And the `lore` component)*. At the time of writing this, no video has been published yet, but one will come soon.
 
 
 ---

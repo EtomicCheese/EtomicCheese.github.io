@@ -7,8 +7,4 @@ Welcome to my personal documentation of Minecraft's technical side ranging from 
 
 ## Index
 
-### Topics
-
-- [Resourcepack Documentation](https://etomiccheese.github.io/Ultimate-Resourcepack-Docs/)
-
 - [Minecraft Commands & Components](/pages/component_tutorials.md)

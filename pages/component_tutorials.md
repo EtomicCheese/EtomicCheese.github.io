@@ -4,4 +4,4 @@ This is the index of all my personal documentation in relation to Minecraft's co
 
 ## Index
 
-- [`custom_name`](tutorials/custom_name.md)
+- [`custom_name & lore`](tutorials/custom_name_lore.md)

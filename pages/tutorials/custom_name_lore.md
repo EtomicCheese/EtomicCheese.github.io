@@ -1,11 +1,12 @@
-# `custom_name`
+# `custom_name & lore`
 
 ## Index
 
-- [`custom_name`](#custom_name)
+
+- [`custom_name & lore`](#custom_name--lore)
   - [Index](#index)
     - [Introduction](#introduction)
-    - [Basics](#basics)
+  - [Custom Name](#custom-name)
     - [Text](#text)
     - [Italic](#italic)
     - [Colors](#colors)
@@ -13,6 +14,7 @@
     - [Styles](#styles)
     - [Multiple Texts](#multiple-texts)
     - [Extra](#extra)
+  - [Lore](#lore)
     - [Conclusion](#conclusion)
 
 ---
@@ -23,7 +25,7 @@ As of Minecraft 1.20.5, the `custom_name` component is to replace the old `displ
 
 ---
 
-### Basics
+## Custom Name
 
 First you must give yourself an item or block to store into your inventory.
 
@@ -415,11 +417,82 @@ give @p minecraft:paper[
 give @p minecraft:paper[custom_name='{text: "Hello, World!",color:gold,extra:[{text: " Extra Extra!"},{text: " Even More Extra!",extra:[{text: " Ok this is getting a little long now"}]}]}']
 ```
 
+Though it is not recommended to code like this since having nested objects tends to become difficult to comprehend if your not too careful.
+
+---
+
+## Lore
+
+Just like how you can add custom names to your items and blocks with customized colors and styles, you are also able to create custom descriptions for your items and blocks.
+
+But unlike the default `custom_name` component, the `lore` component can contain multiple lines of text rather than just a single line. This is quite useful if you want to add multiline descriptions of your item.
+
+The code in the `lore` component is not too difficult compared to the `custom_name` component as they use the exact same text format with some key differences that aren't too difficult to understand.
+
+Firstly, let's add the lore component to the item.
+
+Since `minecraft:sponge` opens up to square brackets, this implies that you can have multiple components active at the same time. Which means you can have both `custom_name` and `lore` on the same item at once.
+
+```json
+minecraft:sponge[custom_name='{}',lore=['{}']]
+```
+
+You can see that `custom_name` uses hyphens `''` to indicate that the code inside displays text. Lore however first creates square brackets, then hyphens. This means you can have multiple texts. Specifically multiple lines of text. That means we can have lore on three different lines if we do this.
+
+```json
+minecraft:sponge[lore=['{}','{}','{}']]
+```
+
+Here we can have three text objects on three different lines!
+
+Now let's make a practical command that functions in the game itself.
+
+```json
+give @p minecraft:sponge[
+    custom_name='{
+        text: "This is a Name"
+    }',
+    lore=[
+        '{
+            text: "This is Lore"
+        }',
+        '{
+            text: "This is another line of Lore"
+        }'
+    ]
+]
+```
+
+```json
+give @p minecraft:sponge[custom_name='{text: "This is a Name"}',lore=['{text: "This is Lore"}','{text: "This is another line of Lore"}']]
+```
+
+To break it down, `lore` doesn't seem too different from `custom_name`. You can add styles, your own colors just like `custom_name`.
+
+And just like before where you can have multiple styles and colors on a single line, you use square brackets in between the hyphens in order to have multiple text objects on a single line.
+
+For instance if we had two lines:
+
+```json
+lore=['{}','{}']
+```
+
+adding more than one text object for a single line is fairly easy:
+
+```json
+lore=['[{},{},{}]','[{},{},{}]']
+```
+
+So there we go, two lines with three text objects, rather simple.
+
+And that is all there is to it. You can apply all that you have learned in the `custom_name` component and apply it here, except of course, you can have more than one entire line to work with.
+
 ---
 
 ### Conclusion
 
 And that is everything you need to know, or rather everything you can possibly know about the `custom_name` component! At the time of writing this, no video has been published yet, but one will come soon.
+
 
 ---
 

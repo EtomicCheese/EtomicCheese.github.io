@@ -2,7 +2,6 @@
 
 ## Index
 
-
 - [`custom_name & lore`](#custom_name--lore)
   - [Index](#index)
     - [Introduction](#introduction)
@@ -492,7 +491,6 @@ And that is all there is to it. You can apply all that you have learned in the `
 ### Conclusion
 
 And that is everything you need to know, or rather everything you can possibly know about the `custom_name` component! *(And the `lore` component)*. At the time of writing this, no video has been published yet, but one will come soon.
-
 
 ---
 
